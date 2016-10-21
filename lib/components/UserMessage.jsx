@@ -21,7 +21,7 @@ export default class UserMessage extends React.Component {
   updateCharacterCount () {
     let input = document.getElementById('input');
     let charCount = document.getElementById('char-count');
-    charCount.tex`t(input.value().length);
+    charCount.text(input.value().length);
   }
 
   render() {
@@ -40,4 +40,4 @@ export default class UserMessage extends React.Component {
       </div>
       );
     }
-  }
+}
