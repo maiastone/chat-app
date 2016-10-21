@@ -1,7 +1,8 @@
 import React from 'react';
 import firebase, { reference, signIn } from '../firebase';
 import { pick, map, extend } from 'lodash';
-import UserMessage from './UserMessage'
+import UserMessage from './UserMessage';
+import MessageBox from './MessageBox';
 
 class Application extends React.Component {
   constructor() {
@@ -24,7 +25,7 @@ class Application extends React.Component {
   }
 
   addNewMessage(draftMessage) {
-    const { user} = this.state;
+    const { user } = this.state;
 
     reference.push({
       user: pick(user, 'displayName', 'email', 'uid'),
@@ -34,14 +35,12 @@ class Application extends React.Component {
   }
 
   render() {
-    const { user, messages, draftMessage } = this.state;
+    const { user, messages } = this.state;
 
     return (
       <div className="Application">
         {user ? <p>Hello {user.displayName}</p> : <button onClick={() => signIn()}>Sign In</button> }
-        <ul>
-          { this.state.messages.map(m => <li key={m.key}>{m.user.displayName}: {m.content}</li>) }
-        </ul>
+        <MessageBox messages={this.state.messages}/>
         <UserMessage submitMessage={this.addNewMessage.bind(this)}  />
       </div>
 
