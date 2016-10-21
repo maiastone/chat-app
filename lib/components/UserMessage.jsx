@@ -1,6 +1,8 @@
 import React from 'react';
 
 
+
+
 export default class UserMessage extends React.Component {
   constructor() {
     super();
@@ -12,15 +14,29 @@ export default class UserMessage extends React.Component {
     this.setState({draftMessage: ''});
   }
 
+  clearMessage() {
+    document.getElementById('input').value='';
+  }
+
+  updateCharacterCount () {
+    let input = document.getElementById('input');
+    let charCount = document.getElementById('char-count');
+    charCount.tex`t(input.value().length);
+  }
+
   render() {
   return (
       <div className="MessageInput">
-        <input
+        <input id="input"
           placeholder="Message…"
           value={this.state.draftMessage}
           onChange={(e) => this.setState({ draftMessage: e.target.value })}
+
         />
-        <button onClick={() => this.addNewMessage()}>Add New Message</button>
+
+        <div id='char-count'>0</div>
+        <button onClick={() => this.addNewMessage()}>Submit</button>
+        <button onClick={() => this.clearMessage()}>Clear</button>
       </div>
       );
     }
