@@ -31,12 +31,10 @@ export default class UserMessage extends React.Component {
           placeholder="Message…"
           value={this.state.draftMessage}
           onChange={(e) => this.setState({ draftMessage: e.target.value })}
-
         />
-
-        <div id='char-count'>0</div>
-        <button onClick={() => this.addNewMessage()}>Submit</button>
-        <button onClick={() => this.clearMessage()}>Clear</button>
+      <p id='CharCount'>{ 140-this.state.draftMessage.length}</p>
+        <button id="submit" onClick={() => this.addNewMessage()}>Submit</button>
+        <button id="clear" onClick={() => this.clearMessage()}>Clear</button>
       </div>
       );
     }
