@@ -16,13 +16,9 @@ export default class UserMessage extends React.Component {
 
   clearMessage() {
     document.getElementById('input').value='';
+
   }
 
-  updateCharacterCount () {
-    let input = document.getElementById('input');
-    let charCount = document.getElementById('char-count');
-    charCount.text(input.value().length);
-  }
 
   render() {
   return (
@@ -32,7 +28,7 @@ export default class UserMessage extends React.Component {
           value={this.state.draftMessage}
           onChange={(e) => this.setState({ draftMessage: e.target.value })}
         />
-      <p id='CharCount'>{ 140-this.state.draftMessage.length}</p>
+        <p id='CharCount'>{ 140-this.state.draftMessage.length}</p>
         <button id="submit" onClick={() => this.addNewMessage()}>Submit</button>
         <button id="clear" onClick={() => this.clearMessage()}>Clear</button>
       </div>
