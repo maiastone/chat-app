@@ -15,7 +15,7 @@ describe('UserMessage', () => {
 
   it('should change the state of "draft messages" based on user input', () => {
     const wrapper = mount(<UserMessage />);
-    wrapper.find('#user-message').simulate('change', {target: {value: 'Hello'}});
+    wrapper.find('#input').simulate('change', {target: {value: 'Hello'}});
     expect(wrapper.state('draftMessage')).to.equal('Hello');
   });
   it.skip('the add new msg button should push the draft message to the messages array on click', () => {
@@ -23,8 +23,8 @@ describe('UserMessage', () => {
 
   it.skip('the button should reset the draft message state to an empty string on click', () => {
   const wrapper = mount(<UserMessage />)
-  wrapper.find('#user-message').simulate('change', {target: {value: 'Hello'}});
-  wrapper.find('#submit-btn').simulate('click');
+  wrapper.find('#input').simulate('change', {target: {value: 'Hello'}});
+  wrapper.find('#submit').simulate('click');
   expect(wrapper.state('draftMessage')).to.equal('');
   });
 
