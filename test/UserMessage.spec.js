@@ -21,7 +21,7 @@ describe('UserMessage', () => {
   it.skip('the add new msg button should push the draft message to the messages array on click', () => {
   });
 
-  it('the button should reset the draft message state to an empty string on click', () => {
+  it.skip('the button should reset the draft message state to an empty string on click', () => {
   const wrapper = mount(<UserMessage />)
   wrapper.find('#user-message').simulate('change', {target: {value: 'Hello'}});
   wrapper.find('#submit-btn').simulate('click');
