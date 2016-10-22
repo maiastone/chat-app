@@ -44,7 +44,7 @@ class Application extends React.Component {
       <div className="Application">
         <Filter />
         <MessageBox messages={this.state.messages}/>
-        <UsersList />
+        <UsersList messages={this.state.messages} />
         {user ? <p>Logged in as {user.displayName}</p> : <button onClick={() => signIn()}>Sign In</button> }
         <UserMessage submitMessage={this.addNewMessage.bind(this)}  />
       </div>

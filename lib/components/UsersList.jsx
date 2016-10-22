@@ -1,4 +1,5 @@
 import React from 'react';
+import { pick, map, extend, uniq } from 'lodash';
 
 class UsersList extends React.Component {
   constructor(){
@@ -7,15 +8,16 @@ class UsersList extends React.Component {
 
   render() {
 
-
   return (
-    <div>
+
       <ul>
-        <li>users</li>
-      </ul>
-    </div>
+        { uniq(this.props.messages.map(m =>
+          <li key={m.key}> {m.user.displayName}</li>
+        ))}
+        </ul>
       );
     }
   }
+
 
 module.exports = UsersList;
