@@ -1,4 +1,5 @@
 import React from 'react';
+import Application from './Application.jsx'
 
 
 
@@ -16,9 +17,7 @@ export default class UserMessage extends React.Component {
 
   clearMessage() {
     document.getElementById('input').value='';
-
   }
-
 
   render() {
   return (

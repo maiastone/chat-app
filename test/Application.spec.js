@@ -10,5 +10,4 @@ describe('Application', () => {
     const wrapper = shallow(<Application />)
     assert.equal(wrapper.type(), 'div');
   });
-
 });
