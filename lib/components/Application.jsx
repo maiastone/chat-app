@@ -1,8 +1,10 @@
 import React from 'react';
 import firebase, { reference, signIn } from '../firebase';
+import moment from 'moment';
 import { pick, map, extend } from 'lodash';
 import UserMessage from './UserMessage';
 import MessageBox from './MessageBox';
+import Filter from './Filter';
 
 class Application extends React.Component {
   constructor() {
@@ -30,7 +32,7 @@ class Application extends React.Component {
     reference.push({
       user: pick(user, 'displayName', 'email', 'uid'),
       content: draftMessage,
-      createdAt: Date.now()
+      createdAt: moment().format('MMMM D, h:mma')
     });
   }
 
@@ -39,8 +41,9 @@ class Application extends React.Component {
 
     return (
       <div className="Application">
-        {user ? <p>Hello {user.displayName}</p> : <button onClick={() => signIn()}>Sign In</button> }
+        <Filter />
         <MessageBox messages={this.state.messages}/>
+        {user ? <p>Logged in as {user.displayName}</p> : <button onClick={() => signIn()}>Sign In</button> }
         <UserMessage submitMessage={this.addNewMessage.bind(this)}  />
       </div>
 

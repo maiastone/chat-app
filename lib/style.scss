@@ -38,3 +38,15 @@ body {
 ul {
   list-style: none;
 }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 45px;
+  align-items: center;
+}
+
+.header input {
+  height: 25px;
+  width: 40%;
+}

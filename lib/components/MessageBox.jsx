@@ -1,5 +1,5 @@
 import React from 'react';
-import moment from 'moment';
+
 
 
 class MessageBox extends React.Component {
@@ -10,8 +10,6 @@ class MessageBox extends React.Component {
   render() {
 
 
-
-// moment().format('MMMM Do, h:mma')
   return (
 
       <ul>
