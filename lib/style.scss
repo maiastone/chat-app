@@ -1,15 +1,40 @@
 $wtf: #ffffff;
-$ridiculous: cursive;
+
 
 body {
   background: $wtf;
-}
-
-.hello-world {
-  font-family: $ridiculous;
+  font-family: 'Fira Sans', sans-serif;
 }
 
 #new-message--content {
   height: 100px;
   border: 1px dotted aliceblue;
+}
+
+.MessageInput {
+  display: flex;
+  justify-content: space-around;
+  height: 45px;
+  background-color: #34495e;
+  align-items: center;
+}
+
+#input {
+  height: 25px;
+  width: 75%;
+  border-radius: 5px;
+}
+
+#submit, #clear {
+  height: 25px;
+  width: 7%;
+  border-radius: 5px;
+}
+
+#CharCount {
+  color: white;
+}
+
+ul {
+  list-style: none;
 }
