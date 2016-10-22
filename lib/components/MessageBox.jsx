@@ -7,8 +7,8 @@ class MessageBox extends React.Component {
     super();
   }
 
-  render() {
 
+  render() {
 
   return (
 

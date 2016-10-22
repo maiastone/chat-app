@@ -6,7 +6,7 @@ import UserMessage from './UserMessage';
 import MessageBox from './MessageBox';
 import Filter from './Filter';
 import UsersList from './UsersList';
-import Sort from './Sort';
+import Sort from './Sort'
 
 class Application extends React.Component {
   constructor() {
@@ -24,7 +24,6 @@ class Application extends React.Component {
         messages: map(messages, (val, key) => extend(val, { key }))
       });
     });
-
     firebase.auth().onAuthStateChanged(user => this.setState({ user }));
   }
 

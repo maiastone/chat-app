@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { pick, map, extend, uniq } from 'lodash';
 
 class Sort extends React.Component {
   constructor(){
@@ -8,10 +8,11 @@ class Sort extends React.Component {
 
   sortUp() {
     var array = this.props.messages;
-    debugger
     var revArray = array.reverse();
     console.log(revArray);
-  }
+    this.setState({
+      messages: revArray });
+    }
 
   render() {
 

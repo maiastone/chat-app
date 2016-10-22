@@ -3,7 +3,6 @@ import Application from './Application.jsx'
 
 
 
-
 export default class UserMessage extends React.Component {
   constructor() {
     super();
