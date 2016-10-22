@@ -1,5 +1,5 @@
 import React from 'react';
-import { pick, map, extend, uniq } from 'lodash';
+import { pick, map, extend, uniqBy } from 'lodash';
 
 class UsersList extends React.Component {
   constructor(){
@@ -11,7 +11,7 @@ class UsersList extends React.Component {
   return (
 
       <ul>
-        { uniq(this.props.messages.map(m =>
+        { uniqBy(this.props.messages.map(m =>
           <li key={m.key}> {m.user.displayName}</li>
         ))}
         </ul>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { pick, map, extend, uniq } from 'lodash';
+import Application from './Application'
 
 class Sort extends React.Component {
   constructor(){
