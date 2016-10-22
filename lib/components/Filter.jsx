@@ -16,7 +16,6 @@ class Filter extends React.Component {
       <header className="header">
         <p>Shoot the Breeze</p>
         <input type="search" placeholder="Filter"/>
-        <Sort />
       </header>
 
     </div>

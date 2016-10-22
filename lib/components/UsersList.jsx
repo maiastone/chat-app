@@ -19,5 +19,4 @@ class UsersList extends React.Component {
     }
   }
 
-
 module.exports = UsersList;

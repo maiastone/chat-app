@@ -6,6 +6,7 @@ import UserMessage from './UserMessage';
 import MessageBox from './MessageBox';
 import Filter from './Filter';
 import UsersList from './UsersList';
+import Sort from './Sort';
 
 class Application extends React.Component {
   constructor() {
@@ -37,12 +38,14 @@ class Application extends React.Component {
     });
   }
 
+
   render() {
     const { user, messages } = this.state;
 
     return (
       <div className="Application">
-        <Filter />
+        <Filter messages={this.state.messages} />
+        <Sort messages={this.state.messages} />
         <MessageBox messages={this.state.messages}/>
         <UsersList messages={this.state.messages} />
         {user ? <p>Logged in as {user.displayName}</p> : <button onClick={() => signIn()}>Sign In</button> }
