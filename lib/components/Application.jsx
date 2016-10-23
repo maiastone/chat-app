@@ -27,6 +27,13 @@ class Application extends React.Component {
     firebase.auth().onAuthStateChanged(user => this.setState({ user }));
   }
 
+//   componentDidUpdate() {
+//   var scroll = Scroll.animateScroll;
+//   scroll.scrollToBottom({
+//     duration: 0 //happen instantly
+//   });
+// }
+
   addNewMessage(draftMessage) {
     const { user } = this.state;
 

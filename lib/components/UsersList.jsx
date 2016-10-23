@@ -1,5 +1,6 @@
 import React from 'react';
-import { pick, map, extend, uniqBy } from 'lodash';
+import Application from './Application'
+import { pick, map, extend, uniqBy, keyBy } from 'lodash';
 
 class UsersList extends React.Component {
   constructor(){
@@ -8,12 +9,14 @@ class UsersList extends React.Component {
 
   render() {
 
+    let userArray  = []
+    userArray = keyBy(this.props.messages, 'user.displayName');
+    const userList = Object.keys(userArray);
+
   return (
 
       <ul>
-        { uniqBy(this.props.messages.map(m =>
-          <li key={m.key}> {m.user.displayName}</li>
-        ))}
+          <li> {userList} </li>
         </ul>
       );
     }
