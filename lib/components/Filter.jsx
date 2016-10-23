@@ -4,20 +4,19 @@ import Sort from './Sort';
 class Filter extends React.Component {
   constructor(){
     super();
-  }
 
-// TODO filter through array and show or hide based on searchString
-    filterMessages(searchString) {
-    for (var i=0; i < this.array.length; i++) {
-    var existingMessage = this.array[i];
-    if (!(this.array[i].input.includes(searchString))) {
-      array.children(this.array[i]).hide();
-    } else {
-      array.children(this.array[i]).show();
-    }
-  }
 }
 
+  // let ref = firebase.database().ref(searchString, message
+//       filterMessages() {
+//
+//
+// }
+  filteredMessages(searchString) {
+  var messageArray = this.props.messages;
+  var filteredArray = messageArray.filter(messageArray );
+  this.setState({messages: filteredArray});
+  }
 
   render() {
 
@@ -25,7 +24,10 @@ class Filter extends React.Component {
     <div>
       <header className="header">
         <p>Shoot the Breeze</p>
-        <input type="search" placeholder="Filter"/>
+        <input  type="search" placeholder="Filter"
+          value={this.state.searchString}
+          onChange={(e)=> this.setState({searchString: e.target.value})}/>
+
         <Sort />
       </header>
 

@@ -1,7 +1,4 @@
 import React from 'react';
-import Application from './Application.jsx'
-
-
 
 
 export default class UserMessage extends React.Component {
@@ -17,6 +14,13 @@ export default class UserMessage extends React.Component {
 
   clearMessage() {
     document.getElementById('input').value='';
+    this.setState({draftMessage: ''});
+  }
+
+  updateCharacterCount () {
+    let input = document.getElementById('input');
+    let charCount = document.getElementById('char-count');
+    charCount.text(input.value().length);
   }
 
   render() {

@@ -7,15 +7,21 @@ class MessageBox extends React.Component {
     super();
   }
 
+
+  functionFilter
+
+
+  functionSort
+
+
   render() {
 
 
   return (
 
       <ul>
-        { this.props.messages.map(m =>
+        {this.props.messages.map(m =>
           <li key={m.key}>{}{m.createdAt} {m.user.displayName} {m.content}</li>
-
         )}
 
       </ul>
