@@ -9,14 +9,18 @@ class UsersList extends React.Component {
 
   render() {
 
-    let userArray  = []
-    userArray = keyBy(this.props.messages, 'user.displayName');
-    const userList = Object.keys(userArray);
+    let nameArray  = []
+    let emailArray = []
+    nameArray = keyBy(this.props.messages,'user.displayName');
+    emailArray = keyBy(this.props.messages, 'user.email');
+    const userNames = Object.keys(nameArray);
+    const userEmails = Object.keys(emailArray);
 
   return (
 
       <ul>
-          <li> {userList} </li>
+          <li> {userNames} </li>
+          <li> {userEmails} </li>
         </ul>
       );
     }
