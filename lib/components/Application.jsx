@@ -1,18 +1,21 @@
 import React from 'react';
 import firebase, { reference, signIn } from '../firebase';
 import moment from 'moment';
-import { pick, map, extend } from 'lodash';
+import { pick, map, extend, filter } from 'lodash';
 import UserMessage from './UserMessage';
 import MessageBox from './MessageBox';
-import Filter from './Filter';
+import FilteredMessages from './Filter';
 import UsersList from './UsersList';
+import Sort from './Sort';
+
 
 class Application extends React.Component {
   constructor() {
     super();
     this.state = {
       messages: [],
-      user: null
+      user: null,
+      filteredArray: []
     };
   }
 
@@ -37,26 +40,42 @@ class Application extends React.Component {
     });
   }
 
+  filterMessages(searchString) {
+    let messageArray = this.state.messages;
+    let filteredArray = messageArray.filter(messageArray, (message) => {
+      return message.content.toLowerCase().includes(searchString.toLowerCase());
+    });
+    this.setState({messages: filteredArray});
+  }
+
+
   render() {
     const { user, messages } = this.state;
 
     return (
       <div className="Application">
 
-        <Filter messages={this.state.messages}/> 
+        <header className="header">
+          <p>Shoot the Breeze</p>
+          <FilteredMessages search={this.filterMessages.bind(this)} />
+          <Sort />
+        </header>
 
-        <MessageBox messages={this.state.messages}/>
+        <main className="body">
+          <MessageBox messages={this.state.messages}/>
+          <UsersList />
+        </main>
 
-        <UsersList />
-
-        {user ? <p>Logged in as {user.displayName}</p> : <button onClick={() => signIn()}>Sign In</button> }
-
-        <UserMessage submitMessage={this.addNewMessage.bind(this)}  />
+        <footer>
+          {user ? <p>Logged in as {user.displayName}</p> : <button onClick={() => signIn()}>Sign In</button> }
+          <UserMessage submitMessage={this.addNewMessage.bind(this)} />
+        </footer>
 
       </div>
-
     );
   }
 }
+
+
 
 module.exports = Application;

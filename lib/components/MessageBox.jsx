@@ -1,33 +1,23 @@
 import React from 'react';
 
 
-
 class MessageBox extends React.Component {
   constructor(){
     super();
   }
 
-
-  functionFilter
-
-
-  functionSort
-
-
   render() {
 
+    return (
 
-  return (
-
-      <ul>
-        {this.props.messages.map(m =>
-          <li key={m.key}>{}{m.createdAt} {m.user.displayName} {m.content}</li>
-        )}
-
-      </ul>
-
-      );
-    }
+        <ul>
+          {this.props.messages.map(m =>
+            <li key={m.key}>{}{m.createdAt} {m.user.displayName} {m.content}</li>)}
+        </ul>
+        );
+      }
   }
+
+
 
 module.exports = MessageBox;
