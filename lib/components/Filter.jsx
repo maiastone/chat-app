@@ -7,7 +7,7 @@ class FilteredMessages extends React.Component {
   render() {
 
     return (
-      <input type="search" placeholder="Filter"
+      <input id="filter" type="search" placeholder="Filter"
         onChange={this.filterMessages}/>
      );
   }

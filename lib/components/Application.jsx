@@ -55,8 +55,8 @@ class Application extends React.Component {
     return (
       <div className="Application">
 
-        <header className="header">
-          <p>Shoot the Breeze</p>
+        <header id="header">
+          <p id="title">Shoot the Breeze</p>
           <FilteredMessages search={this.filterMessages.bind(this)} />
           <Sort />
         </header>

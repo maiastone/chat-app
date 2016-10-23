@@ -28,7 +28,7 @@ export default class UserMessage extends React.Component {
   render() {
   return (
       <div className="MessageInput">
-        <input id="input"
+        <input id="message"
           placeholder="Message…"
           value={this.state.draftMessage}
           onChange={(e) => this.setState({ draftMessage: e.target.value })} />

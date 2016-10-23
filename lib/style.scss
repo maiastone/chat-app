@@ -1,37 +1,42 @@
-$wtf: #ffffff;
-
-
 body {
-  background: $wtf;
   font-family: 'Fira Sans', sans-serif;
 }
 
-#new-message--content {
-  height: 100px;
-  border: 1px dotted aliceblue;
-}
-
-.MessageInput {
+.MessageInput, header {
   display: flex;
   justify-content: space-around;
-  height: 45px;
+  height: 50px;
   background-color: #34495e;
   align-items: center;
 }
 
-#input {
+#message {
   height: 25px;
   width: 75%;
   border-radius: 5px;
 }
 
-#submit, #clear {
+#filter {
+  height: 25px;
+  width: 50%;
+  border-radius: 5px;
+  margin-right: 22%;
+}
+
+#submit, #clear, {
   height: 25px;
   width: 7%;
   border-radius: 5px;
 }
 
-#CharCount {
+.sort {
+  height: 25px;
+  border-radius: 5px;
+  width: 50px;
+
+}
+
+#CharCount, #title {
   color: white;
 }
 
@@ -41,12 +46,8 @@ ul {
 
 .header {
   display: flex;
-  justify-content: space-between;
-  height: 45px;
+  justify-content: flex-start;
+  height: 50px;
+  background-color: #34495e;
   align-items: center;
-}
-
-.header input {
-  height: 25px;
-  width: 40%;
 }
