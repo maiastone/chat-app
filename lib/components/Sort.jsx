@@ -7,19 +7,24 @@ class Sort extends React.Component {
     super();
   }
 
-  sortUp() {
-    const array = this.props.messages;
-    const revArray = array.reverse();
-    console.log(revArray);
-    this.props.sortMessages(revArray);
+  sortMessagesUp() {
+    const normArray = this.props.messages;
+    const revArray = normArray.reverse();
+    this.props.sortUp(revArray);
+  }
+
+  sortMessagesDown() {
+    const normArray = this.props.messages;
+    const revArray = normArray.reverse();
+    this.props.sortUp(revArray);
   }
 
   render() {
 
   return (
     <div>
-      <button onClick={() => this.sortUp()}>Sort Up</button>
-      <button onClick={() => this.sortDown()}>Sort Down</button>
+      <button onClick={() => this.sortMessagesUp()}>Sort Up</button>
+      <button onClick={() => this.sortMessagesDown()}>Sort Down</button>
     </div>
 
       );

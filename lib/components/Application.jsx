@@ -27,13 +27,6 @@ class Application extends React.Component {
     firebase.auth().onAuthStateChanged(user => this.setState({ user }));
   }
 
-//   componentDidUpdate() {
-//   var scroll = Scroll.animateScroll;
-//   scroll.scrollToBottom({
-//     duration: 0 //happen instantly
-//   });
-// }
-
   addNewMessage(draftMessage) {
     const { user } = this.state;
 
@@ -44,10 +37,13 @@ class Application extends React.Component {
     });
   }
 
-  sortMessages(revArray) {
+  sortUp(revArray) {
     this.setState({messages: revArray})
   }
 
+  sortDown(normArray) {
+    this.setState({messages: revArray})
+  }
 
   render() {
     const { user, messages } = this.state;
@@ -56,7 +52,8 @@ class Application extends React.Component {
       <div className="Application">
         <Filter messages={messages} />
         <Sort messages={messages}
-              sortMessages={this.sortMessages.bind(this)}/>
+              sortUp={this.sortUp.bind(this)}
+              sortDown={this.sortDown.bind(this)}/>
         <MessageBox messages={messages}/>
         <UsersList messages={messages} />
         {user ? <p>Logged in as {user.displayName}</p> : <button onClick={() => signIn()}>Sign In</button> }
