@@ -10,13 +10,13 @@ class Sort extends React.Component {
   sortMessagesUp() {
     const normArray = this.props.messages;
     const revArray = normArray.reverse();
-    this.props.sortUp(revArray);
+    this.props.sortMessages(revArray);
   }
 
   sortMessagesDown() {
     const normArray = this.props.messages;
     const revArray = normArray.reverse();
-    this.props.sortUp(revArray);
+    this.props.sortMessages(revArray);
   }
 
   render() {
