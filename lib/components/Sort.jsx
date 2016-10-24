@@ -24,7 +24,7 @@ class Sort extends React.Component {
   return (
     <div>
       <button onClick={() => this.sortMessagesUp()}>Sort Up</button>
-      <button onClick={() => this.sortMessagesDown()}>Sort Down</button>
+      <button disabled='true' onClick={() => this.sortMessagesDown()}>Sort Down</button>
     </div>
 
       );
