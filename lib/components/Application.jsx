@@ -44,6 +44,7 @@ class Application extends React.Component {
   }
 
 
+
   render() {
     const { user, messages, filteredArray } = this.state;
 
@@ -65,8 +66,8 @@ class Application extends React.Component {
           <UsersList />
         </main>
 
-        <footer>
-          {user ? <p>Logged in as {user.displayName}</p> : <button onClick={() => signIn()}>Sign In</button> }
+        <footer id="footer">
+          <div id="userName">{user ? <p>Logged in as {user.displayName}</p> : <button onClick={() => signIn()}>Sign In</button> }</div>
           <UserMessage submitMessage={this.addNewMessage.bind(this)} />
         </footer>
 

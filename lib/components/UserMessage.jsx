@@ -30,7 +30,7 @@ export default class UserMessage extends React.Component {
 
   render() {
   return (
-      <footer className="MessageInput">
+      <section className="MessageInput">
         <input id="message"
           placeholder="Message…"
           value={this.state.draftMessage}
@@ -38,7 +38,7 @@ export default class UserMessage extends React.Component {
         <p id='CharCount'>{ 140-this.state.draftMessage.length}</p>
         <button id="submit" onClick={() => this.addNewMessage()}>Submit</button>
         <button id="clear" onClick={() => this.clearMessage()}>Clear</button>
-      </footer>
+      </section>
       );
     }
 }

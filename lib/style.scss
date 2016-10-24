@@ -2,12 +2,43 @@ body {
   font-family: 'Fira Sans', sans-serif;
 }
 
+ul {
+  list-style: none;
+}
+
+li {
+  padding: 8px;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-start;
+  height: 50px;
+  background-color: #34495e;
+  align-items: center;
+  position: fixed;
+}
+
 .MessageInput, header {
   display: flex;
   justify-content: space-around;
   height: 50px;
   background-color: #34495e;
   align-items: center;
+}
+
+
+.sort {
+  height: 25px;
+  border-radius: 5px;
+  width: 50px;
+
+}
+
+.body {
+  display: flex;
+  justify-content: space-between;
+
 }
 
 #message {
@@ -29,27 +60,8 @@ body {
   border-radius: 5px;
 }
 
-.sort {
-  height: 25px;
-  border-radius: 5px;
-  width: 50px;
-
-}
-
 #CharCount, #title {
   color: white;
-}
-
-ul {
-  list-style: none;
-}
-
-.header {
-  display: flex;
-  justify-content: flex-start;
-  height: 50px;
-  background-color: #34495e;
-  align-items: center;
 }
 
 #date {
@@ -58,14 +70,32 @@ ul {
 
 #name {
   color: #2980b9;
-
-}
-
-li {
-  padding: 8px;
 }
 
 #renderedMessages {
   font-spacing: extended;
   line-height: 1.5em;
+  width: 66%;
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  p {
+    color: white;
+  }
+}
+
+#userName {
+  display: flex;
+  background-color: #7f8c8d;
+  height: 30px;
+  align-items: center;
+}
+
+
+#users {
+  background-color: #bdc3c7;
+  width: 33%;
 }

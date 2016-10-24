@@ -8,8 +8,8 @@ class FilteredMessages extends React.Component {
 
     const searchString = e.target.value;
     if (searchString.length >= 1) {
-      let filterArray = this.props.messages.filter(function(l){
-        return l.content.toLowerCase().match(searchString);
+      let filterArray = this.props.messages.filter(function(m){
+        return m.content.toLowerCase().match(searchString);
       });
       this.props.filteredDisplay(filterArray);
     } else {
