@@ -19,8 +19,8 @@ class UsersList extends React.Component {
   return (
 
       <ul>
-          <li> {userNames} </li>
-          <li> {userEmails} </li>
+          <li className='user-names'> {userNames} </li>
+          <li className='user-emails'> {userEmails} </li>
         </ul>
       );
     }

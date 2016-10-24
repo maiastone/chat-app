@@ -44,16 +44,21 @@ class Application extends React.Component {
     });
   }
 
+  sortMessages(revArray) {
+    this.setState({messages: revArray})
+  }
+
 
   render() {
     const { user, messages } = this.state;
 
     return (
       <div className="Application">
-        <Filter messages={this.state.messages} />
-        <Sort messages={this.state.messages} />
-        <MessageBox messages={this.state.messages}/>
-        <UsersList messages={this.state.messages} />
+        <Filter messages={messages} />
+        <Sort messages={messages}
+              sortMessages={this.sortMessages.bind(this)}/>
+        <MessageBox messages={messages}/>
+        <UsersList messages={messages} />
         {user ? <p>Logged in as {user.displayName}</p> : <button onClick={() => signIn()}>Sign In</button> }
         <UserMessage submitMessage={this.addNewMessage.bind(this)}  />
       </div>
