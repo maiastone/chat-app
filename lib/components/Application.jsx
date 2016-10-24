@@ -59,8 +59,9 @@ class Application extends React.Component {
         </header>
 
         <main className="body">
-          <MessageBox messages={messages}
-                      filteredArray={filteredArray} />
+          <MessageBox
+            messages={messages}
+            filteredArray={filteredArray} />
           <UsersList />
         </main>
 

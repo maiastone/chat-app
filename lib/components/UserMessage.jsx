@@ -7,14 +7,18 @@ export default class UserMessage extends React.Component {
     this.state = {draftMessage: '' };
   }
 
+  clearInput() {
+   this.setState({draftMessage: ''});
+  }
+
   addNewMessage() {
     this.props.submitMessage(this.state.draftMessage);
-    this.setState({draftMessage: ''});
+    this.clearInput();
   }
 
   clearMessage() {
-    document.getElementById('input').value='';
-    this.setState({draftMessage: ''});
+    document.getElementById('message').value='';
+    this.clearInput();
   }
 
   updateCharacterCount () {
@@ -26,7 +30,7 @@ export default class UserMessage extends React.Component {
 
   render() {
   return (
-      <div className="MessageInput">
+      <footer className="MessageInput">
         <input id="message"
           placeholder="Message…"
           value={this.state.draftMessage}
@@ -34,7 +38,7 @@ export default class UserMessage extends React.Component {
         <p id='CharCount'>{ 140-this.state.draftMessage.length}</p>
         <button id="submit" onClick={() => this.addNewMessage()}>Submit</button>
         <button id="clear" onClick={() => this.clearMessage()}>Clear</button>
-      </div>
+      </footer>
       );
     }
 }
