@@ -13,7 +13,8 @@ class Application extends React.Component {
     super();
     this.state = {
       messages: [],
-      user: null
+      user: null,
+      filteredArray: null
     };
   }
 
@@ -47,6 +48,7 @@ class Application extends React.Component {
 
     return (
       <div className="Application">
+
         <Filter messages={messages} />
         <Sort messages={messages}
               sortMessages={this.sortMessages.bind(this)}

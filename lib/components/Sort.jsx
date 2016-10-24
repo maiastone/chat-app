@@ -12,7 +12,8 @@ class Sort extends React.Component {
     const normArray = this.props.messages;
     const revArray = normArray.reverse();
     this.props.sortMessages(revArray);
-    $
+    $('#sort-down-btn').prop('disabled', false);
+     
   }
 
   sortMessagesDown() {
@@ -25,7 +26,7 @@ class Sort extends React.Component {
 
   return (
     <div>
-      <button id='sort-up-btn' onClick={() => this.sortMessagesUp()}>Sort Up</button>
+      <button disabled='false' id='sort-up-btn' onClick={() => this.sortMessagesUp()}>Sort Up</button>
       <button id='sort-down-btn' disabled='true' onClick={() => this.sortMessagesDown()}>Sort Down</button>
     </div>
 
