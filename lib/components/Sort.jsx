@@ -1,6 +1,7 @@
 import React from 'react';
 import { pick, map, extend, uniqBy} from 'lodash';
 import Application from './Application'
+const $ = require('jquery');
 
 class Sort extends React.Component {
   constructor(){
@@ -11,6 +12,7 @@ class Sort extends React.Component {
     const normArray = this.props.messages;
     const revArray = normArray.reverse();
     this.props.sortMessages(revArray);
+    $
   }
 
   sortMessagesDown() {
@@ -23,8 +25,8 @@ class Sort extends React.Component {
 
   return (
     <div>
-      <button onClick={() => this.sortMessagesUp()}>Sort Up</button>
-      <button disabled='true' onClick={() => this.sortMessagesDown()}>Sort Down</button>
+      <button id='sort-up-btn' onClick={() => this.sortMessagesUp()}>Sort Up</button>
+      <button id='sort-down-btn' disabled='true' onClick={() => this.sortMessagesDown()}>Sort Down</button>
     </div>
 
       );
