@@ -1,7 +1,4 @@
 import React from 'react';
-import Application from './Application.jsx'
-
-
 
 
 export default class UserMessage extends React.Component {
@@ -10,27 +7,38 @@ export default class UserMessage extends React.Component {
     this.state = {draftMessage: '' };
   }
 
+  clearInput() {
+   this.setState({draftMessage: ''});
+  }
+
   addNewMessage() {
     this.props.submitMessage(this.state.draftMessage);
-    this.setState({draftMessage: ''});
+    this.clearInput();
   }
 
   clearMessage() {
-    document.getElementById('input').value='';
+    document.getElementById('message').value='';
+    this.clearInput();
   }
+
+  updateCharacterCount () {
+    let input = document.getElementById('input');
+    let charCount = document.getElementById('char-count');
+    charCount.text(input.value().length);
+  }
+
 
   render() {
   return (
-      <div className="MessageInput">
-        <input id="input"
+      <section className="MessageInput">
+        <input id="message"
           placeholder="Message…"
           value={this.state.draftMessage}
-          onChange={(e) => this.setState({ draftMessage: e.target.value })}
-        />
+          onChange={(e) => this.setState({ draftMessage: e.target.value })} />
         <p id='CharCount'>{ 140-this.state.draftMessage.length}</p>
         <button id="submit" onClick={() => this.addNewMessage()}>Submit</button>
         <button id="clear" onClick={() => this.clearMessage()}>Clear</button>
-      </div>
+      </section>
       );
     }
 }

@@ -1,28 +1,29 @@
 import React from 'react';
-import Sort from './Sort';
-
-class Filter extends React.Component {
-  constructor(){
-    super();
-  }
 
 
+class FilteredMessages extends React.Component {
 
-
-  render() {
-
-  return (
-    <div>
-      <header className="header">
-        <p>Shoot the Breeze</p>
-        <input type="search" placeholder="Filter"/>
-        <Sort />
-      </header>
-
-    </div>
-
-      );
+  filterArray(e) {
+    const searchString = e.target.value;
+    if (searchString.length >= 1) {
+      let filterArray = this.props.messages.filter(function(m){
+        return m.content.toLowerCase().match(searchString);
+      });
+      this.props.filteredDisplay(filterArray);
+    } else {
+      this.props.filteredDisplay(null);
     }
   }
 
-module.exports = Filter;
+  render() {
+
+    return (
+      <input id="filter" type="search" placeholder="Filter"
+        value={this.props.searchString}
+        onChange={(e)=> this.filterArray(e)}/>
+     );
+  }
+}
+
+
+module.exports = FilteredMessages;

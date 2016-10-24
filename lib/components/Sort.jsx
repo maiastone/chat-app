@@ -11,8 +11,8 @@ class Sort extends React.Component {
 
   return (
     <div>
-      <button>Sort</button>
-      <button>Sort</button>
+      <button className="sort">Sort</button>
+      <button className="sort">Sort</button>
     </div>
 
       );
