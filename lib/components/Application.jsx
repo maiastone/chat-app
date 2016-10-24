@@ -1,12 +1,12 @@
 import React from 'react';
 import firebase, { reference, signIn } from '../firebase';
 import moment from 'moment';
-import { pick, map, extend } from 'lodash';
+import { pick, map, extend, filter } from 'lodash';
 import UserMessage from './UserMessage';
 import MessageBox from './MessageBox';
-import Filter from './Filter';
+import FilteredMessages from './Filter';
 import UsersList from './UsersList';
-import Sort from './Sort'
+import Sort from './Sort';
 
 class Application extends React.Component {
   constructor() {
@@ -30,7 +30,6 @@ class Application extends React.Component {
 
   addNewMessage(draftMessage) {
     const { user } = this.state;
-
     reference.push({
       user: pick(user, 'displayName', 'email', 'uid'),
       content: draftMessage,
@@ -42,25 +41,46 @@ class Application extends React.Component {
     this.setState({messages: revArray})
   }
 
+  filteredDisplay(filterArray) {
+    this.setState({filteredArray: filterArray});
+}
+
 
   render() {
-    const { user, messages } = this.state;
+    const { user, messages, filteredArray } = this.state;
 
     return (
       <div className="Application">
+        
+        <header id="header">
+          <p id="title">Shoot the Breeze</p>
+          <FilteredMessages
+            messages ={messages}
+            filteredDisplay = {this.filteredDisplay.bind(this)} />
+          <Sort
+            messages={messages}
+            sortMessages={this.sortMessages.bind(this)} />
+        </header>
 
-        <Filter messages={messages} />
-        <Sort messages={messages}
-              sortMessages={this.sortMessages.bind(this)}
-              />
-        <MessageBox messages={messages}/>
-        <UsersList messages={messages} />
-        {user ? <p>Logged in as {user.displayName}</p> : <button onClick={() => signIn()}>Sign In</button> }
-        <UserMessage submitMessage={this.addNewMessage.bind(this)}  />
+        <main className="body">
+          <MessageBox
+            messages={messages}
+            filteredArray={filteredArray} />
+          <UsersList
+            messages={messages} />
+        </main>
+
+        <footer id="footer">
+          <div id="userName">{user ? <p>Logged in as {user.displayName}</p> : <button onClick={() => signIn()}>Sign In</button> }</div>
+          <UserMessage
+            submitMessage={this.addNewMessage.bind(this)} />
+        </footer>
+
       </div>
-
     );
   }
 }
+
+
 
 module.exports = Application;

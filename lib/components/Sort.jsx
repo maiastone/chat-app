@@ -13,7 +13,7 @@ class Sort extends React.Component {
     const revArray = normArray.reverse();
     this.props.sortMessages(revArray);
     $('#sort-down-btn').prop('disabled', false);
-     
+
   }
 
   sortMessagesDown() {

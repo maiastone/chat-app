@@ -9,8 +9,9 @@ class UsersList extends React.Component {
 
   render() {
 
-    let nameArray  = []
-    let emailArray = []
+
+    let nameArray  = [];
+    let emailArray = [];
     nameArray = keyBy(this.props.messages,'user.displayName');
     emailArray = keyBy(this.props.messages, 'user.email');
     const userNames = Object.keys(nameArray);
@@ -18,7 +19,7 @@ class UsersList extends React.Component {
 
   return (
 
-      <ul>
+      <ul id="users"><p id="userTitle">Users</p>
           <li className='user-names'> {userNames} </li>
           <li className='user-emails'> {userEmails} </li>
         </ul>
