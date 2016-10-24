@@ -1,5 +1,5 @@
 import React from 'react';
-import Application from './Application';
+import Application from './Application'
 import { pick, map, extend, uniqBy, keyBy } from 'lodash';
 
 class UsersList extends React.Component {
@@ -8,6 +8,7 @@ class UsersList extends React.Component {
   }
 
   render() {
+
 
     let nameArray  = [];
     let emailArray = [];

@@ -8,7 +8,6 @@ import FilteredMessages from './Filter';
 import UsersList from './UsersList';
 import Sort from './Sort';
 
-
 class Application extends React.Component {
   constructor() {
     super();
@@ -26,7 +25,6 @@ class Application extends React.Component {
         messages: map(messages, (val, key) => extend(val, { key }))
       });
     });
-
     firebase.auth().onAuthStateChanged(user => this.setState({ user }));
   }
 
@@ -39,9 +37,13 @@ class Application extends React.Component {
     });
   }
 
+  sortMessages(revArray) {
+    this.setState({messages: revArray})
+  }
+
   filteredDisplay(filterArray) {
     this.setState({filteredArray: filterArray});
-  }
+}
 
 
   render() {
@@ -49,7 +51,7 @@ class Application extends React.Component {
 
     return (
       <div className="Application">
-
+        
         <header id="header">
           <p id="title">Shoot the Breeze</p>
           <FilteredMessages
