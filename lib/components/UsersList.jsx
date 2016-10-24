@@ -9,20 +9,33 @@ class UsersList extends React.Component {
 
   render() {
 
-
-    let nameArray  = [];
-    let emailArray = [];
-    nameArray = keyBy(this.props.messages,'user.displayName');
-    emailArray = keyBy(this.props.messages, 'user.email');
-    const userNames = Object.keys(nameArray);
-    const userEmails = Object.keys(emailArray);
+    //
+    // let nameArray  = [];
+    // let emailArray = [];
+    // nameArray = keyBy(this.props.messages,'user.displayName');
+    // emailArray = keyBy(this.props.messages, 'user.email');
+    // const userNames = Object.keys(nameArray);
+    // const userEmails = Object.keys(emailArray);
+    // let users = []
+    // for(var i = 0; i < userNames.length; i++) {
+    //   let name = userNames[i];
+    //   let email = userEmails[i];
+    //   users.push(<li>{name}: {email}</li>)
+    // }
+    let userDisplay = {}
+    for(var i = 0; i < this.props.messages.length; i++){
+      let name = this.props.messages[i].user.displayName
+      let email = this.props.messages[i].user.email
+      userDisplay[name] = email
+    }
+    let names = Object.keys(userDisplay);
+    let users = names.map(name => <li>{name}: {userDisplay[name]} </li> )
 
   return (
 
       <ul id="users"><p id="userTitle">Users</p>
-          <li className='user-names'> {userNames} </li>
-          <li className='user-emails'> {userEmails} </li>
-        </ul>
+      {users}
+      </ul>
       );
     }
   }
