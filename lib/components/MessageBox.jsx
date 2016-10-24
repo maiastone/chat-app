@@ -9,16 +9,17 @@ class MessageBox extends React.Component {
 
   render() {
 
+    const currentArray = ( this.props.filteredArray ) ? this.props.filteredArray : this.props.messages;
+
+
     return (
 
         <ul>
-          {this.props.messages.map(m =>
+          {currentArray.map(m =>
             <li key={m.key}>{}{m.createdAt} {m.user.displayName} {m.content}</li>)}
         </ul>
         );
       }
   }
-
-
 
 module.exports = MessageBox;

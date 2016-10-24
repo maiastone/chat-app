@@ -15,10 +15,9 @@ class Application extends React.Component {
     this.state = {
       messages: [],
       user: null,
-      searchString: ''
+      filteredArray: null
     };
-    this.filterArray = this.filterArray.bind(this);
-  }
+}
 
   componentDidMount() {
     reference.limitToLast(100).on('value', (snapshot) => {
@@ -31,13 +30,8 @@ class Application extends React.Component {
     firebase.auth().onAuthStateChanged(user => this.setState({ user }));
   }
 
-  filterArray(e) {
-    this.setState({searchString: e.target.value});
-  }
-
   addNewMessage(draftMessage) {
     const { user } = this.state;
-
     reference.push({
       user: pick(user, 'displayName', 'email', 'uid'),
       content: draftMessage,
@@ -45,24 +39,28 @@ class Application extends React.Component {
     });
   }
 
-
+  filteredDisplay(filterArray) {
+    this.setState({filteredArray: filterArray});
+  }
 
 
   render() {
-    const { user, messages, searchString } = this.state;
+    const { user, messages, filteredArray } = this.state;
 
     return (
       <div className="Application">
 
         <header id="header">
           <p id="title">Shoot the Breeze</p>
-          <FilteredMessages searchString = {searchString}
-          filterArray = {this.filterArray} />
+          <FilteredMessages
+           messages ={messages}
+           filteredDisplay = {this.filteredDisplay.bind(this)}/>
           <Sort />
         </header>
 
         <main className="body">
-          <MessageBox messages={this.state.messages} searchString={searchString}/>
+          <MessageBox messages={messages}
+                      filteredArray={filteredArray} />
           <UsersList />
         </main>
 
