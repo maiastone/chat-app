@@ -21,7 +21,7 @@ li {
 
 .MessageInput, header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 50px;
   background-color: #34495e;
   align-items: center;
@@ -32,19 +32,18 @@ li {
   height: 25px;
   border-radius: 5px;
   width: 50px;
-
 }
 
 .body {
   display: flex;
   justify-content: space-between;
-
 }
 
 #message {
   height: 25px;
   width: 75%;
   border-radius: 5px;
+  margin-left: 10px;
 }
 
 #filter {
@@ -72,10 +71,14 @@ li {
   color: #2980b9;
 }
 
+#title {
+  margin-left: 10px;
+}
+
 #renderedMessages {
   font-spacing: extended;
   line-height: 1.5em;
-  width: 66%;
+  width: 75%;
 }
 
 #footer {
@@ -84,18 +87,24 @@ li {
   width: 100%;
   p {
     color: white;
+    margin-left: 10px;
   }
 }
 
 #userName {
   display: flex;
   background-color: #7f8c8d;
-  height: 30px;
+  height: 40px;
   align-items: center;
+  font-weight: bold;
 }
-
 
 #users {
   background-color: #bdc3c7;
-  width: 33%;
+  width: 25%;
+}
+
+#userTitle {
+  font-weight: 700;
+  margin: 5px;
 }

@@ -17,7 +17,7 @@ class Application extends React.Component {
       user: null,
       filteredArray: null
     };
-}
+  }
 
   componentDidMount() {
     reference.limitToLast(100).on('value', (snapshot) => {
@@ -44,7 +44,6 @@ class Application extends React.Component {
   }
 
 
-
   render() {
     const { user, messages, filteredArray } = this.state;
 
@@ -54,21 +53,25 @@ class Application extends React.Component {
         <header id="header">
           <p id="title">Shoot the Breeze</p>
           <FilteredMessages
-           messages ={messages}
-           filteredDisplay = {this.filteredDisplay.bind(this)}/>
-          <Sort />
+            messages ={messages}
+            filteredDisplay = {this.filteredDisplay.bind(this)} />
+          <Sort
+            messages={messages}
+            sortMessages={this.sortMessages.bind(this)} />
         </header>
 
         <main className="body">
           <MessageBox
             messages={messages}
             filteredArray={filteredArray} />
-          <UsersList />
+          <UsersList
+            messages={messages} />
         </main>
 
         <footer id="footer">
           <div id="userName">{user ? <p>Logged in as {user.displayName}</p> : <button onClick={() => signIn()}>Sign In</button> }</div>
-          <UserMessage submitMessage={this.addNewMessage.bind(this)} />
+          <UserMessage
+            submitMessage={this.addNewMessage.bind(this)} />
         </footer>
 
       </div>
