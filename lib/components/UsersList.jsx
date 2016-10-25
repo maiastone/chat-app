@@ -29,12 +29,13 @@ class UsersList extends React.Component {
       userDisplay[name] = email;
     }
     let names = Object.keys(userDisplay);
-    let users = names.map(name => <li>{name} ({userDisplay[name]}) </li> );
+    let users = names.map(name => <button className="user-list-button">{name} ({userDisplay[name]}) </button> );
 
   return (
 
-      <ul id="users"><p id="userTitle">Users</p>
-      {users}
+      <ul id="users">
+        <p id="userTitle">Users</p>
+        <li>{users}</li>
       </ul>
       );
     }
