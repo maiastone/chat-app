@@ -73,8 +73,10 @@ class Application extends React.Component {
         </main>
 
         <footer id="footer">
-          <div id="userName"> {user ? <p>Logged in as {user.displayName} <button onClick={()=> signOut()}>SignOut</button></p> 
-             : <button onClick={() => signIn()}>Sign In</button> }
+          <div id="userName"> {user ?
+            <p>Logged in as {user.displayName}
+            <button className="sign" onClick={()=> signOut()}>SignOut</button></p> 
+            : <button className="sign" onClick={() => signIn()}>Sign In</button>}
           </div>
           <UserMessage
             submitMessage={this.addNewMessage.bind(this)} />

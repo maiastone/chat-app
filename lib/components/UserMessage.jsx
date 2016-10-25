@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class UserMessage extends React.Component {
+class UserMessage extends React.Component {
   constructor() {
     super();
     this.state = {draftMessage: '' };
@@ -45,3 +45,5 @@ export default class UserMessage extends React.Component {
       );
     }
 }
+
+export default UserMessage;
