@@ -22,14 +22,14 @@ class UsersList extends React.Component {
     //   let email = userEmails[i];
     //   users.push(<li>{name}: {email}</li>)
     // }
-    let userDisplay = {}
+    let userDisplay = {};
     for(var i = 0; i < this.props.messages.length; i++){
-      let name = this.props.messages[i].user.displayName
-      let email = this.props.messages[i].user.email
-      userDisplay[name] = email
+      let name = this.props.messages[i].user.displayName.split(' ')[0];
+      let email = this.props.messages[i].user.email;
+      userDisplay[name] = email;
     }
     let names = Object.keys(userDisplay);
-    let users = names.map(name => <li>{name}: {userDisplay[name]} </li> )
+    let users = names.map(name => <li>{name} ({userDisplay[name]}) </li> );
 
   return (
 

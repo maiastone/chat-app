@@ -30,13 +30,17 @@ export default class UserMessage extends React.Component {
   render() {
   return (
       <section className="MessageInput">
-        <input id="message"
-          placeholder="Message…"
-          value={this.state.draftMessage}
-          onChange={(e) => this.setState({ draftMessage: e.target.value })} />
-        <p id='CharCount'>{ 140-this.state.draftMessage.length}</p>
-        <button id="submit" onClick={() => this.addNewMessage()}>Submit</button>
-        <button id="clear" onClick={() => this.clearMessage()}>Clear</button>
+        <div className='message-field'>
+          <input id="message"
+            placeholder="Message"
+            value={this.state.draftMessage}
+            onChange={(e) => this.setState({ draftMessage: e.target.value })} />
+          <p id='CharCount'>{ 140-this.state.draftMessage.length}</p>
+        </div>
+        <div className='button-container-mobile'>
+          <button id="submit" onClick={() => this.addNewMessage()}>Submit</button>
+          <button id="clear" onClick={() => this.clearMessage()}>Clear</button>
+        </div>
       </section>
       );
     }

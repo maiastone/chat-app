@@ -11,28 +11,14 @@ li {
 }
 
 .header {
-  display: flex;
+  /*display: flex;
   justify-content: flex-start;
   height: 50px;
   background-color: #34495e;
-  align-items: center;
+  align-items: center;*/
   position: fixed;
 }
 
-.MessageInput, header {
-  display: flex;
-  justify-content: space-between;
-  height: 50px;
-  background-color: #34495e;
-  align-items: center;
-}
-
-
-.sort {
-  height: 25px;
-  border-radius: 5px;
-  width: 50px;
-}
 
 .body {
   display: flex;
@@ -40,27 +26,29 @@ li {
 }
 
 #message {
-  height: 25px;
-  width: 75%;
+  height: 55px;
+  width: 65%;
   border-radius: 5px;
-  margin-left: 10px;
-}
+  margin: 18px;
+  padding-left: 10px;
+  font-size: 20px;
+  background-color: #ecf0f1;
+  }
+
 
 #filter {
-  height: 25px;
-  width: 50%;
+  height: 55px;
+  width: 90%;
   border-radius: 5px;
-  margin-right: 22%;
-}
-
-#submit, #clear, {
-  height: 25px;
-  width: 7%;
-  border-radius: 5px;
+  margin: 18px;
+  padding-left: 10px;
+  font-size: 20px;
+  background-color: #ecf0f1;
 }
 
 #CharCount, #title {
   color: white;
+  font-size: 18px;
 }
 
 #date {
@@ -69,16 +57,18 @@ li {
 
 #name {
   color: #2980b9;
+  font-weight: bold;
 }
 
 #title {
   margin-left: 10px;
+  padding-top: 10px;
 }
 
 #renderedMessages {
   font-spacing: extended;
   line-height: 1.5em;
-  width: 75%;
+  width: 66%;
 }
 
 #footer {
@@ -88,6 +78,7 @@ li {
   p {
     color: white;
     margin-left: 10px;
+    margin-top: 5px;
   }
 }
 
@@ -101,10 +92,64 @@ li {
 
 #users {
   background-color: #bdc3c7;
-  width: 25%;
+  width: 33%;
 }
 
 #userTitle {
   font-weight: 700;
   margin: 5px;
+}
+
+#sort-up-btn, #sort-down-btn, #submit, #clear {
+  width: 130px;
+  height: 50px;
+  background-color: #3498db;
+  border-radius: 5px;
+  font-size: 26px;
+  color: white;
+  border-style: none;
+  margin:  0 10px;
+}
+
+#submit {
+  background-color: #2ecc71;
+}
+
+#clear {
+  background-color: #e74c3c;
+}
+
+.button-container-mobile {
+  display: flex;
+  justify-content: center;
+}
+
+.MessageInput, header {
+  display: block;
+  height: 185px;
+  background-color: #34495e;
+  align-content: center;
+}
+
+.message-field {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+@media screen and (min-width: 600px) {
+
+.MessageInput, header {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  background-color: #34495e;
+  align-items: center;
+}
+
+.filter {
+  width: 60%;
+}
+
 }
