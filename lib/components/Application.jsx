@@ -14,7 +14,8 @@ class Application extends React.Component {
     this.state = {
       messages: [],
       user: null,
-      filteredArray: null
+      filteredArray: null,
+      filteredUserArray: null,
     };
   }
 
@@ -39,8 +40,12 @@ class Application extends React.Component {
     });
   }
 
+  filteredUserDisplay(filterUserArray) {
+    this.setState({filteredUserArray: filterUserArray});
+  }
+
   sortMessages(revArray) {
-    this.setState({messages: revArray})
+    this.setState({messages: revArray});
   }
 
   filteredDisplay(filterArray) {
@@ -49,7 +54,7 @@ class Application extends React.Component {
 
 
   render() {
-    const { user, messages, filteredArray } = this.state;
+    const { user, messages, filteredArray, filteredUserArray } = this.state;
 
     return (
       <div className="Application">
@@ -67,15 +72,18 @@ class Application extends React.Component {
         <main className="body">
           <MessageBox
             messages={messages}
-            filteredArray={filteredArray} />
+            filteredArray={filteredArray}
+            filteredUserArray={filteredUserArray}
+             />
           <UsersList
-            messages={messages} />
+            messages={messages}
+            filteredUserDisplay={this.filteredUserDisplay.bind(this)} />
         </main>
 
         <footer id="footer">
           <div id="userName"> {user ?
             <p>Logged in as {user.displayName}
-            <button className="sign" onClick={()=> signOut()}>SignOut</button></p> 
+            <button className="sign" onClick={()=> signOut()}>SignOut</button></p>
             : <button className="sign" onClick={() => signIn()}>Sign In</button>}
           </div>
           <UserMessage

@@ -1,35 +1,37 @@
 import React from 'react';
-import Application from './Application'
-import { pick, map, extend, uniqBy, keyBy } from 'lodash';
+import Application from './Application';
+
 
 class UsersList extends React.Component {
   constructor(){
     super();
+  
   }
+
+  userArray(e) {
+    let userEmail = e.target.value;
+
+// if buttton clicked
+    let filterUserArray = this.props.messages.filter(function(u) {
+      return u.user.email.match(userEmail);
+    });
+    this.props.filteredUserDisplay(filterUserArray);
+  }
+
 
   render() {
 
-    //
-    // let nameArray  = [];
-    // let emailArray = [];
-    // nameArray = keyBy(this.props.messages,'user.displayName');
-    // emailArray = keyBy(this.props.messages, 'user.email');
-    // const userNames = Object.keys(nameArray);
-    // const userEmails = Object.keys(emailArray);
-    // let users = []
-    // for(var i = 0; i < userNames.length; i++) {
-    //   let name = userNames[i];
-    //   let email = userEmails[i];
-    //   users.push(<li>{name}: {email}</li>)
-    // }
     let userDisplay = {};
     for(var i = 0; i < this.props.messages.length; i++){
       let name = this.props.messages[i].user.displayName.split(' ')[0];
       let email = this.props.messages[i].user.email;
       userDisplay[name] = email;
     }
+
     let names = Object.keys(userDisplay);
-    let users = names.map(name => <button className="user-list-button">{name} ({userDisplay[name]}) </button> );
+    let users = names.map(name =>
+      <button value={this.props.messages[0].user.email} onClick={(e)=>this.userArray(e)} className="user-list-button">
+        {name} ({userDisplay[name]}) </button> );
 
   return (
 

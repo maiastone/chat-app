@@ -8,11 +8,18 @@ class MessageBox extends React.Component {
   }
 
   render() {
+    // const currentArray = (this.props.filteredUserArray) ?
+// if filteredUser then currentArray = filteredUserArray
+// else current Array = filteredTextArray
+// else current Array = this.props.messages
 
-    const currentArray = ( this.props.filteredArray ) ? this.props.filteredArray : this.props.messages;
+    const currentArray =
+    ( this.props.filteredUserArray ) ? this.props.filteredUserArray : this.props.messages;
+
+
 
     return (
-      
+
         <ul id="renderedMessages">
           {currentArray.map(m =>
             <li key={m.key}>{}<span id='date'>{m.createdAt}  </span>
