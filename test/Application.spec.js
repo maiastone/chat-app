@@ -10,4 +10,9 @@ describe('Application', () => {
     const wrapper = shallow(<Application />)
     assert.equal(wrapper.type(), 'div');
   });
+
+  it('should render the app name', () => {
+    const wrapper = shallow(<Application />)
+    expect(wrapper.contains('Shoot the Breeze')).to.be.true
+  })
 });
