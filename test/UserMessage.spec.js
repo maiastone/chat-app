@@ -4,6 +4,7 @@ import React from 'react';
 import {shallow, mount, render} from 'enzyme';
 import UserMessage from '../lib/components/UserMessage.jsx';
 import Application from '../lib/components/Application.jsx';
+import messages from './helpers/messages'
 
 
 describe('UserMessage', () => {
@@ -27,7 +28,7 @@ describe('UserMessage', () => {
   });
 
   it('the button should reset the draft message state to an empty string on click', () => {
-  const wrapper = mount(<UserMessage submitMessage={this.addNewMessage.bind(this)}/>)
+  const wrapper = shallow(<UserMessage />)
   wrapper.find('#message').simulate('change', {target: {value: 'Hello'}});
   wrapper.find('#submit').simulate('click');
   expect(wrapper.state('draftMessage')).to.equal('');
