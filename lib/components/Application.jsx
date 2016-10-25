@@ -41,7 +41,7 @@ class Application extends React.Component {
   }
 
   filteredUserDisplay(filterUserArray) {
-    this.setState({filteredUserArray: filterUserArray});
+    this.setState({filteredArray: filterUserArray});
   }
 
   sortMessages(revArray) {
@@ -62,7 +62,7 @@ class Application extends React.Component {
         <header id="header">
           <p id="title">Shoot the Breeze</p>
           <FilteredMessages
-            messages ={messages}
+            messages ={filteredArray? filteredArray:messages}
             filteredDisplay = {this.filteredDisplay.bind(this)} />
           <Sort
             messages={messages}
@@ -71,12 +71,11 @@ class Application extends React.Component {
 
         <main className="body">
           <MessageBox
-            messages={messages}
-            filteredArray={filteredArray}
-            filteredUserArray={filteredUserArray}
+            messages={filteredArray? filteredArray:messages}
              />
           <UsersList
             messages={messages}
+            displayedMessages={messages}
             filteredUserDisplay={this.filteredUserDisplay.bind(this)} />
         </main>
 

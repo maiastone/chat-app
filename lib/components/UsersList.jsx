@@ -5,15 +5,13 @@ import Application from './Application';
 class UsersList extends React.Component {
   constructor(){
     super();
-  
+
   }
 
-  userArray(e) {
-    let userEmail = e.target.value;
-
-// if buttton clicked
-    let filterUserArray = this.props.messages.filter(function(u) {
-      return u.user.email.match(userEmail);
+  userArray(name) {
+    let userEmail = name;
+    let filterUserArray = this.props.displayedMessages.filter(function(u) {
+      return u.user.displayName.match(userEmail);
     });
     this.props.filteredUserDisplay(filterUserArray);
   }
@@ -30,7 +28,7 @@ class UsersList extends React.Component {
 
     let names = Object.keys(userDisplay);
     let users = names.map(name =>
-      <button value={this.props.messages[0].user.email} onClick={(e)=>this.userArray(e)} className="user-list-button">
+      <button  onClick={()=>this.userArray(name)} className="user-list-button">
         {name} ({userDisplay[name]}) </button> );
 
   return (
