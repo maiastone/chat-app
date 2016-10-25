@@ -1,5 +1,5 @@
 import React from 'react';
-import firebase, { reference, signIn } from '../firebase';
+import firebase, { reference, signIn, signOut} from '../firebase';
 import moment from 'moment';
 import { pick, map, extend, filter } from 'lodash';
 import UserMessage from './UserMessage';
@@ -28,6 +28,8 @@ class Application extends React.Component {
     firebase.auth().onAuthStateChanged(user => this.setState({ user }));
   }
 
+
+
   addNewMessage(draftMessage) {
     const { user } = this.state;
     reference.push({
@@ -51,7 +53,7 @@ class Application extends React.Component {
 
     return (
       <div className="Application">
-        
+
         <header id="header">
           <p id="title">Shoot the Breeze</p>
           <FilteredMessages
@@ -71,7 +73,11 @@ class Application extends React.Component {
         </main>
 
         <footer id="footer">
-          <div id="userName">{user ? <p>Logged in as {user.displayName}</p> : <button onClick={() => signIn()}>Sign In</button> }</div>
+          <div id="userName"> {user ?
+            <p>Logged in as {user.displayName}
+            <button className="sign" onClick={()=> signOut()}>SignOut</button></p> 
+            : <button className="sign" onClick={() => signIn()}>Sign In</button>}
+          </div>
           <UserMessage
             submitMessage={this.addNewMessage.bind(this)} />
         </footer>

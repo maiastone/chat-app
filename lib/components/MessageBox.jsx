@@ -16,7 +16,7 @@ class MessageBox extends React.Component {
         <ul id="renderedMessages">
           {currentArray.map(m =>
             <li key={m.key}>{}<span id='date'>{m.createdAt}  </span>
-              <span id='name'> {m.user.displayName}</span><br/>
+              <span id='name'> {m.user.displayName.split(' ')[0]}</span><br/>
             <span id='content'>{m.content}</span></li>)}
         </ul>
         );
