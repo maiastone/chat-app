@@ -11,11 +11,6 @@ li {
 }
 
 .header {
-  /*display: flex;
-  justify-content: flex-start;
-  height: 50px;
-  background-color: #34495e;
-  align-items: center;*/
   position: fixed;
 }
 
@@ -25,19 +20,78 @@ li {
   justify-content: space-between;
 }
 
+.date {
+  color: #9b59b6;
+  font-size: 18px;
+}
+
+.name {
+  color: #2980b9;
+  font-weight: bolder;
+  font-size: 18px;
+}
+
+.content {
+  color: #34495e;
+  font-size: 18px;
+}
+
+.button-container-mobile {
+  display: flex;
+  justify-content: center;
+}
+
+.MessageInput, header {
+  display: block;
+  height: 150px;
+  background-color: #34495e;
+  align-content: center;
+}
+
+.message-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 75%;
+}
+
+.user-list-button {
+  background: none;
+  width: 100%;
+  height: 50px;
+  border: none;
+  font-size: 16px;
+  text-align: left;
+  color: #34495e;
+  margin-left: 10px;
+  &:focus {
+    outline: none;
+  }
+}
+
+.sign {
+  width: 60px;
+  height: 25px;
+  margin-left: 15px;
+  border-radius: 5px;
+  background-color: #2ecc71;
+  border: none;
+  color: white;
+}
+
 #message {
-  height: 55px;
-  width: 65%;
+  height: 35px;
+  width: 70%;
   border-radius: 5px;
   margin: 18px;
   padding-left: 10px;
   font-size: 20px;
   background-color: #ecf0f1;
-  }
+}
 
 
 #filter {
-  height: 55px;
+  height: 50px;
   width: 90%;
   border-radius: 5px;
   margin: 18px;
@@ -51,24 +105,40 @@ li {
   font-size: 18px;
 }
 
-#date {
-  color: #9b59b6;
-}
-
-#name {
-  color: #2980b9;
-  font-weight: bold;
-}
-
 #title {
-  margin-left: 10px;
-  padding-top: 10px;
+  display: none;
 }
 
 #renderedMessages {
   font-spacing: extended;
   line-height: 1.5em;
   width: 66%;
+}
+
+#userTitle {
+  font-weight: bolder;
+  margin: 15px;
+  color: #2c3e50;
+  font-size: 20px;
+}
+
+#sort-up-btn, #sort-down-btn, #submit, #clear {
+  width: 130px;
+  height: 50px;
+  background-color: #3498db;
+  border-radius: 5px;
+  font-size: 26px;
+  color: #ecf0f1;
+  border-style: none;
+  margin:  0 10px;
+}
+
+#submit {
+  background-color: #2ecc71;
+}
+
+#clear {
+  background-color: #e74c3c;
 }
 
 #footer {
@@ -83,92 +153,72 @@ li {
 }
 
 #userName {
+  display: none;
+}
+
+#users {
+  display: none;
+}
+::-webkit-input-placeholder {
+   color: #2c3e50;
+}
+
+@media screen and (min-width: 600px) {
+
+h5 {
+  padding: 10px;
+}
+
+.MessageInput, header {
   display: flex;
-  background-color: #7f8c8d;
+  justify-content: space-between;
+  height: 55px;
+  background-color: #34495e;
+  align-items: center;
+}
+
+#title {
+  display: block;
+  margin-left: 10px;
+}
+
+#filter {
+  width: 45%;
+  height: 35px;
+  margin-right: 60px;
+
+}
+
+#users {
+  display: block;
+  background-color: #ecf0f1;
+  width: 33%;
+}
+
+#userName {
+  display: flex;
+  background-color: #95a5a6;
   height: 40px;
   align-items: center;
   font-weight: bold;
 }
 
-#users {
-  background-color: #bdc3c7;
-  width: 33%;
-}
-
-#userTitle {
-  font-weight: 700;
-  margin: 5px;
-}
 
 #sort-up-btn, #sort-down-btn, #submit, #clear {
-  width: 130px;
-  height: 50px;
-  background-color: #3498db;
-  border-radius: 5px;
-  font-size: 26px;
-  color: white;
-  border-style: none;
-  margin:  0 10px;
+  width: 100px;
+  height: 35px;
+  font-size: 20px;
 }
 
-#submit {
-  background-color: #2ecc71;
+#message {
+  height: 30px;
+  color: #2c3e50;
+  width: 85%;
 }
 
-#clear {
-  background-color: #e74c3c;
+#CharCount {
+  padding: 0px;
 }
 
-.button-container-mobile {
-  display: flex;
-  justify-content: center;
-}
-
-.MessageInput, header {
-  display: block;
-  height: 185px;
-  background-color: #34495e;
-  align-content: center;
-}
-
-.message-field {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.user-list-button {
-  background: none;
-  width: 100%;
-  height: 50px;
-  border: none;
-  font-size: 16px;
-  &:focus {
-    outline: none;
-  }
-}
-
-.sign {
-  width: 60px;
-  height: 25px;
-  margin-left: 15px;
-  border-radius: 5px;
-  background-color: green;
-  border: none;
-}
-
-@media screen and (min-width: 600px) {
-
-.MessageInput, header {
-  display: flex;
-  justify-content: space-between;
-  height: 50px;
-  background-color: #34495e;
-  align-items: center;
-}
-
-.filter {
-  width: 60%;
-}
 
 }
