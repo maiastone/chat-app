@@ -25,15 +25,9 @@ class UserMessage extends React.Component {
     this.setState({submitDisabled: true, clearDisabled: true });
   }
 
-  updateCharacterCount () {
-    let input = document.getElementById('input');
-    let charCount = document.getElementById('char-count');
-    charCount.text(input.value().length);
-  }
-
 
   render() {
-
+    let disabled = this.state.draftMessage.length > 140 || this.state.draftMessage.length === 0
   return (
 
       <section className="MessageInput">
@@ -45,7 +39,7 @@ class UserMessage extends React.Component {
           <p id='CharCount'>{ 140-this.state.draftMessage.length}</p>
         </div>
         <div className='button-container-mobile'>
-          <button tabIndex="0" disabled={this.state.submitDisabled} id="submit" onClick={() => this.addNewMessage()}>Submit</button>
+          <button tabIndex="0" disabled={disabled} id="submit" onClick={() => this.addNewMessage()}>Submit</button>
           <button tabIndex="0" disabled={this.state.clearDisabled} id="clear" onClick={() => this.clearMessage()}>Clear</button>
         </div>
       </section>
