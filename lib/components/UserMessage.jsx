@@ -4,7 +4,10 @@ import React from 'react';
 class UserMessage extends React.Component {
   constructor() {
     super();
-    this.state = {draftMessage: '' };
+    this.state = {draftMessage: '',
+                  submitDisabled: true,
+                  clearDisabled: true
+                  };
   }
 
   clearInput() {
@@ -19,6 +22,7 @@ class UserMessage extends React.Component {
   clearMessage() {
     document.getElementById('message').value='';
     this.clearInput();
+    this.setState({submitDisabled: true, clearDisabled: true });
   }
 
   updateCharacterCount () {
@@ -31,21 +35,22 @@ class UserMessage extends React.Component {
   render() {
 
   return (
-    <section className="MessageInput">
-      <div className="message-field">
-        <input aria-label="message" id="message"
-          placeholder="Message"
-          value={this.state.draftMessage}
-          onChange={(e) => this.setState({ draftMessage: e.target.value })} />
-        <h5 id="CharCount">{ 140-this.state.draftMessage.length}</h5>
-      </div>
-      <div className="button-container-mobile">
-        <button tabIndex="0" id="submit" onClick={() => this.addNewMessage()}>Submit</button>
-        <button tabIndex="0" id="clear" onClick={() => this.clearMessage()}>Clear</button>
-      </div>
-    </section>
-    );
-  }
+
+      <section className="MessageInput">
+        <div className='message-field'>
+          <input id="message"
+            placeholder="Message"
+            value={this.state.draftMessage}
+            onChange={(e) => this.setState({ draftMessage: e.target.value, submitDisabled: false, clearDisabled: false })} />
+          <p id='CharCount'>{ 140-this.state.draftMessage.length}</p>
+        </div>
+        <div className='button-container-mobile'>
+          <button tabIndex="0" disabled={this.state.submitDisabled} id="submit" onClick={() => this.addNewMessage()}>Submit</button>
+          <button tabIndex="0" disabled={this.state.clearDisabled} id="clear" onClick={() => this.clearMessage()}>Clear</button>
+        </div>
+      </section>
+      );
+    }
 }
 
 

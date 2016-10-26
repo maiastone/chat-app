@@ -10,4 +10,8 @@ describe('Sort', () => {
     const wrapper = shallow(<Sort />)
     assert.equal(wrapper.type(), 'div');
   });
+  it('should contain two buttons for sorting up and sorting down', () => {
+    const wrapper = shallow(<Sort />)
+    expect(wrapper.contains('Sort Up')).to.be.true
+  })
 });
