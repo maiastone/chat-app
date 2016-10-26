@@ -1,5 +1,5 @@
 import React from 'react';
-import Application from './Application'
+
 
 class UserMessage extends React.Component {
   constructor() {
@@ -21,7 +21,7 @@ class UserMessage extends React.Component {
 
   clearMessage() {
     document.getElementById('message').value='';
-    this.clearInput()
+    this.clearInput();
     this.setState({submitDisabled: true, clearDisabled: true });
   }
 
@@ -33,7 +33,9 @@ class UserMessage extends React.Component {
 
 
   render() {
+
   return (
+
       <section className="MessageInput">
         <div className='message-field'>
           <input id="message"
@@ -43,12 +45,14 @@ class UserMessage extends React.Component {
           <p id='CharCount'>{ 140-this.state.draftMessage.length}</p>
         </div>
         <div className='button-container-mobile'>
-          <button disabled={this.state.submitDisabled} id="submit" onClick={() => this.addNewMessage()}>Submit</button>
-          <button disabled={this.state.clearDisabled} id="clear" onClick={() => this.clearMessage()}>Clear</button>
+          <button tabIndex="0" disabled={this.state.submitDisabled} id="submit" onClick={() => this.addNewMessage()}>Submit</button>
+          <button tabIndex="0" disabled={this.state.clearDisabled} id="clear" onClick={() => this.clearMessage()}>Clear</button>
         </div>
       </section>
       );
     }
 }
+
+
 
 export default UserMessage;

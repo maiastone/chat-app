@@ -1,12 +1,13 @@
 import React from 'react';
 import firebase, { reference, signIn, signOut} from '../firebase';
 import moment from 'moment';
-import { pick, map, extend, filter } from 'lodash';
+import { pick, map, extend } from 'lodash';
 import UserMessage from './UserMessage';
 import MessageBox from './MessageBox';
 import FilteredMessages from './Filter';
 import UsersList from './UsersList';
 import Sort from './Sort';
+
 
 class Application extends React.Component {
   constructor() {
@@ -29,14 +30,12 @@ class Application extends React.Component {
     firebase.auth().onAuthStateChanged(user => this.setState({ user }));
   }
 
-
-
   addNewMessage(draftMessage) {
     const { user } = this.state;
     reference.push({
       user: pick(user, 'displayName', 'email', 'uid'),
       content: draftMessage,
-      createdAt: moment().format('MMMM D, h:mma')
+      createdAt: moment().format('M/YY, h:mma')
     });
   }
 
@@ -50,11 +49,11 @@ class Application extends React.Component {
 
   filteredDisplay(filterArray) {
     this.setState({filteredArray: filterArray});
-}
+  }
 
 
   render() {
-    const { user, messages, filteredArray, filteredUserArray } = this.state;
+    const { user, messages, filteredArray } = this.state;
 
     return (
       <div className="Application">
@@ -71,8 +70,7 @@ class Application extends React.Component {
 
         <main className="body">
           <MessageBox
-            messages={filteredArray? filteredArray:messages}
-             />
+            messages={filteredArray? filteredArray:messages} />
           <UsersList
             messages={messages}
             displayedMessages={messages}
@@ -81,8 +79,8 @@ class Application extends React.Component {
 
         <footer id="footer">
           <div id="userName"> {user ?
-            <p>Logged in as {user.displayName}
-            <button className="sign" onClick={()=> signOut()}>SignOut</button></p>
+            <p>Logged in as {user.displayName.split(' ')[0]}
+            <button className="sign" onClick={()=> signOut()}>Sign Out</button></p>
             : <button className="sign" onClick={() => signIn()}>Sign In</button>}
           </div>
           <UserMessage

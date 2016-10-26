@@ -18,7 +18,7 @@ class FilteredMessages extends React.Component {
   render() {
 
     return (
-      <input id="filter" type="search" placeholder="Filter"
+      <input aria-label="search" id="filter" type="search" placeholder="Filter"
         value={this.props.searchString}
         onChange={(e)=> this.filterArray(e)}/>
      );

@@ -1,11 +1,9 @@
 import React from 'react';
-import Application from './Application';
 
 
 class UsersList extends React.Component {
   constructor(){
     super();
-
   }
 
   userArray(name) {
@@ -17,6 +15,8 @@ class UsersList extends React.Component {
   }
 
 
+// let currentUser = (email === user.email) ? " " : "🔴";
+
   render() {
 
     let userDisplay = {};
@@ -25,20 +25,21 @@ class UsersList extends React.Component {
       let email = this.props.messages[i].user.email;
       userDisplay[name] = email;
     }
-
     let names = Object.keys(userDisplay);
     let users = names.map(name =>
-      <button  onClick={()=>this.userArray(name)} className="user-list-button">
-        {name} ({userDisplay[name]}) </button> );
+      <button onClick={()=>this.userArray(name)} className="user-list-button">
+        {name} ({userDisplay[name]})</button>);
 
   return (
 
-      <ul id="users">
-        <p id="userTitle">Users</p>
-        <li>{users}</li>
-      </ul>
-      );
-    }
+    <ul id="users">
+      <li id="userTitle">Users</li>
+      <li>{users}</li>
+    </ul>
+    );
   }
+}
+
+
 
 module.exports = UsersList;

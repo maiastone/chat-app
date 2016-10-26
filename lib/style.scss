@@ -1,5 +1,39 @@
+$standard-font-size: 18px;
+$message-filter-margin: 18px;
+$standard-border-radius: 5px;
+$standard-left-margin-padding: 10px;
+$button-height: 50px;
+$button-height-desktop: 35px;
+$header-height: 150px;
+$long-vh: 300vh;
+$message-date-color: #9b59b6;
+$message-name-color: #2980b9;
+$submit-button-color: #2ecc71;
+$clear-button-color: #e74c3c;
+$dark-font-content-color: #34495e;
+$medium-background-color: #95a5a6;
+$light-background-color: #ecf0f1;
+$dark-font-color: #2c3e50;
+$light-font-color: #ecf0f1;
+$sort-button-color: #3498db;
+
+@mixin flexbox {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
 body {
   font-family: 'Fira Sans', sans-serif;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
 }
 
 ul {
@@ -7,62 +41,113 @@ ul {
 }
 
 li {
-  padding: 8px;
+  padding: $standard-left-margin-padding;
 }
-
-.header {
-  /*display: flex;
-  justify-content: flex-start;
-  height: 50px;
-  background-color: #34495e;
-  align-items: center;*/
-  position: fixed;
-}
-
 
 .body {
-  display: flex;
+  @include flexbox();
   justify-content: space-between;
+  height: $long-vh;
+  margin-top: $header-height;
 }
 
-#message {
-  height: 55px;
-  width: 65%;
-  border-radius: 5px;
-  margin: 18px;
-  padding-left: 10px;
-  font-size: 20px;
-  background-color: #ecf0f1;
+.button-container-mobile {
+  @include flexbox;
+  justify-content: center;
+}
+
+.content {
+  color: $dark-font-content-color;
+  font-size: $standard-font-size;
+}
+
+.date {
+  color: $message-date-color;
+  font-size: $standard-font-size;
+}
+
+.message-field {
+  @include flexbox;
+  justify-content: space-between;
+  align-items: center;
+  width: 75%;
+}
+
+.MessageInput, header {
+  display: block;
+  height: $header-height;
+  background-color: $dark-font-content-color;
+  align-content: center;
+}
+
+.name {
+  color: $message-name-color;
+  font-weight: bolder;
+  font-size: $standard-font-size;
+}
+
+.sign {
+  width: 60px;
+  height: 25px;
+  margin-left: 15px;
+  border-radius: $standard-border-radius;
+  background-color: $submit-button-color;
+  border: none;
+  color: $light-font-color;
+}
+
+.user-list-button {
+  background: none;
+  width: 100%;
+  height: $button-height;
+  border: none;
+  font-size: $standard-font-size;
+  text-align: left;
+  color: $dark-font-content-color;
+  margin-left: $standard-left-margin-padding;
+  &:focus {
+    outline: none;
   }
-
-
-#filter {
-  height: 55px;
-  width: 90%;
-  border-radius: 5px;
-  margin: 18px;
-  padding-left: 10px;
-  font-size: 20px;
-  background-color: #ecf0f1;
 }
 
 #CharCount, #title {
-  color: white;
-  font-size: 18px;
+  color: $light-font-color;
+  font-size: $standard-font-size;
 }
 
-#date {
-  color: #9b59b6;
+#clear {
+  background-color: $clear-button-color;
 }
 
-#name {
-  color: #2980b9;
-  font-weight: bold;
+#filter {
+  height: $button-height;
+  width: 90%;
+  border-radius: $standard-border-radius;
+  margin: $message-filter-margin;
+  padding-left: $standard-left-margin-padding;
+  font-size: 20px;
+  background-color: $light-background-color;
 }
 
-#title {
-  margin-left: 10px;
-  padding-top: 10px;
+#footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  p {
+    color: $light-font-color;
+    margin-left: $standard-left-margin-padding;
+    margin-top: 5px;
+  }
+}
+
+#message {
+  height: 35px;
+  width: 70%;
+  border-radius: $standard-border-radius;
+  margin: $message-filter-margin;
+  padding-left: $standard-left-margin-padding;
+  font-size: 20px;
+  background-color: $light-background-color;
 }
 
 #renderedMessages {
@@ -71,104 +156,101 @@ li {
   width: 66%;
 }
 
-#footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  p {
-    color: white;
-    margin-left: 10px;
-    margin-top: 5px;
-  }
-}
-
-#userName {
-  display: flex;
-  background-color: #7f8c8d;
-  height: 40px;
-  align-items: center;
-  font-weight: bold;
-}
-
-#users {
-  background-color: #bdc3c7;
-  width: 33%;
-}
-
-#userTitle {
-  font-weight: 700;
-  margin: 5px;
-}
-
 #sort-up-btn, #sort-down-btn, #submit, #clear {
   width: 130px;
-  height: 50px;
-  background-color: #3498db;
-  border-radius: 5px;
+  height: $button-height;
+  background-color: $sort-button-color;
+  border-radius: $standard-border-radius;
   font-size: 26px;
-  color: white;
+  color: $light-font-color;
   border-style: none;
   margin:  0 10px;
 }
 
 #submit {
-  background-color: #2ecc71;
+  background-color: $submit-button-color;
 }
 
-#clear {
-  background-color: #e74c3c;
+#title {
+  display: none;
 }
 
-.button-container-mobile {
-  display: flex;
-  justify-content: center;
+#userTitle {
+  font-weight: bold;
+  margin: 15px;
+  color: $dark-font-content-color;
+  font-size: 20px;
 }
 
-.MessageInput, header {
-  display: block;
-  height: 185px;
-  background-color: #34495e;
-  align-content: center;
+#users {
+  display: none;
 }
 
-.message-field {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+#userName {
+  display: none;
 }
 
-.user-list-button {
-  background: none;
-  width: 100%;
-  height: 50px;
-  border: none;
-  font-size: 16px;
-  &:focus {
-    outline: none;
-  }
-}
-
-.sign {
-  width: 60px;
-  height: 25px;
-  margin-left: 15px;
-  border-radius: 5px;
-  background-color: green;
-  border: none;
+::-webkit-input-placeholder {
+   color: $dark-font-content-color;
 }
 
 @media screen and (min-width: 600px) {
 
-.MessageInput, header {
-  display: flex;
-  justify-content: space-between;
-  height: 50px;
-  background-color: #34495e;
-  align-items: center;
-}
+  h5 {
+    padding: $standard-left-margin-padding;
+  }
 
-.filter {
-  width: 60%;
-}
+  .body {
+    margin-top: 55px;
+  }
 
+  .MessageInput, header {
+    @include flexbox;
+    justify-content: space-between;
+    height: 55px;
+    background-color: $dark-font-content-color;
+    align-items: center;
+  }
+
+  #CharCount {
+    padding: 0px;
+  }
+
+  #filter {
+    width: 45%;
+    height: $button-height-desktop;
+    margin-right: 60px;
+  }
+
+  #message {
+    height: 30px;
+    color: $dark-font-content-color;
+    width: 85%;
+  }
+
+  #sort-up-btn, #sort-down-btn, #submit, #clear {
+    width: 100px;
+    height: $button-height-desktop;
+    font-size: 20px;
+  }
+
+  #title {
+    display: block;
+    margin-left: $standard-left-margin-padding;
+  }
+
+  #users {
+    display: block;
+    background-color: $light-background-color;
+    width: 33%;
+    height: $long-vh;
+  }
+
+  #userName {
+    @include flexbox;
+    background-color: $medium-background-color;
+    height: 40px;
+    align-items: center;
+    font-weight: bold;
+  }
 }
