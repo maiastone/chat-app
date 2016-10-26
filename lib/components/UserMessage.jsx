@@ -1,4 +1,5 @@
 import React from 'react';
+import Application from './Application'
 
 class UserMessage extends React.Component {
   constructor() {
