@@ -3,7 +3,10 @@ import React from 'react';
 class UserMessage extends React.Component {
   constructor() {
     super();
-    this.state = {draftMessage: '' };
+    this.state = {draftMessage: '',
+                  submitDisabled: true,
+                  clearDisabled: true
+                  };
   }
 
   clearInput() {
@@ -17,7 +20,8 @@ class UserMessage extends React.Component {
 
   clearMessage() {
     document.getElementById('message').value='';
-    this.clearInput();
+    this.clearInput()
+    this.setState({submitDisabled: true, clearDisabled: true });
   }
 
   updateCharacterCount () {
@@ -34,12 +38,12 @@ class UserMessage extends React.Component {
           <input id="message"
             placeholder="Message"
             value={this.state.draftMessage}
-            onChange={(e) => this.setState({ draftMessage: e.target.value })} />
+            onChange={(e) => this.setState({ draftMessage: e.target.value, submitDisabled: false, clearDisabled: false })} />
           <p id='CharCount'>{ 140-this.state.draftMessage.length}</p>
         </div>
         <div className='button-container-mobile'>
-          <button id="submit" onClick={() => this.addNewMessage()}>Submit</button>
-          <button id="clear" onClick={() => this.clearMessage()}>Clear</button>
+          <button disabled={this.state.submitDisabled} id="submit" onClick={() => this.addNewMessage()}>Submit</button>
+          <button disabled={this.state.clearDisabled} id="clear" onClick={() => this.clearMessage()}>Clear</button>
         </div>
       </section>
       );
