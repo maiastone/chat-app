@@ -29,5 +29,11 @@ describe('Sort', () => {
     wrapper.find('#sort-up-btn').simulate('click');
     expect(wrapper.state('sortUp')).deep.equal(true);
     expect(wrapper.state('sortDown')).deep.equal(false);
+  });
+  it.skip('should set state of sortup to true and sort down to false when sortUp button is clicked', () => {
+    const wrapper = mount(<Sort messages={messages} />);
+    wrapper.find('#sort-down-btn').simulate('click');
+    expect(wrapper.state('sortUp')).deep.equal(false);
+    expect(wrapper.state('sortDown')).deep.equal(true);
   })
 });

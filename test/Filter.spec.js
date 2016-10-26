@@ -6,7 +6,7 @@ import Filter from '../lib/components/Filter';
 
 describe('Filter', () => {
 
-  it('renders as a <input>', () => {
+  it('should render as a <input>', () => {
     const wrapper = shallow(<Filter />)
     assert.equal(wrapper.type(), 'input');
   });
