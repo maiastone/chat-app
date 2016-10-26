@@ -15,6 +15,8 @@ class UsersList extends React.Component {
   }
 
 
+// let currentUser = (email === user.email) ? " " : "🔴";
+
   render() {
 
     let userDisplay = {};
@@ -23,11 +25,10 @@ class UsersList extends React.Component {
       let email = this.props.messages[i].user.email;
       userDisplay[name] = email;
     }
-
     let names = Object.keys(userDisplay);
     let users = names.map(name =>
-      <button  onClick={()=>this.userArray(name)} className="user-list-button">
-        {name} ({userDisplay[name]})</button> );
+      <button onClick={()=>this.userArray(name)} className="user-list-button">
+        {name} ({userDisplay[name]})</button>);
 
   return (
 
