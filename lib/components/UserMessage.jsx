@@ -40,8 +40,8 @@ class UserMessage extends React.Component {
         <h5 id="CharCount">{ 140-this.state.draftMessage.length}</h5>
       </div>
       <div className="button-container-mobile">
-        <button tabindex="0" id="submit" onClick={() => this.addNewMessage()}>Submit</button>
-        <button tabindex="0" id="clear" onClick={() => this.clearMessage()}>Clear</button>
+        <button tabIndex="0" id="submit" onClick={() => this.addNewMessage()}>Submit</button>
+        <button tabIndex="0" id="clear" onClick={() => this.clearMessage()}>Clear</button>
       </div>
     </section>
     );

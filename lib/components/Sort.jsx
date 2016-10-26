@@ -29,8 +29,8 @@ class Sort extends React.Component {
 
   return (
     <div className='button-container-mobile'>
-      <button disabled={this.state.sortUp} id='sort-up-btn' onClick={() => this.sortMessagesUp()}>Sort ⬆</button>
-      <button disabled={this.state.sortDown} id='sort-down-btn' onClick={() => this.sortMessagesDown()}>Sort ⬇</button>
+      <button tabIndex="0" disabled={this.state.sortUp} id='sort-up-btn' onClick={() => this.sortMessagesUp()}>Sort ⬆</button>
+      <button tabIndex="0" disabled={this.state.sortDown} id='sort-down-btn' onClick={() => this.sortMessagesDown()}>Sort ⬇</button>
     </div>
       );
     }
