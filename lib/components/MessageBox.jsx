@@ -7,14 +7,12 @@ class MessageBox extends React.Component {
     super();
   }
 
+
   render() {
 
-    const currentArray = ( this.props.filteredArray ) ? this.props.filteredArray : this.props.messages;
-
     return (
-      
         <ul id="renderedMessages">
-          {currentArray.map(m =>
+          {this.props.messages.map(m =>
             <li key={m.key}>{}<span id='date'>{m.createdAt}  </span>
               <span id='name'> {m.user.displayName.split(' ')[0]}</span><br/>
             <span id='content'>{m.content}</span></li>)}
