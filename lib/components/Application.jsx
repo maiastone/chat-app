@@ -35,7 +35,7 @@ class Application extends React.Component {
     reference.push({
       user: pick(user, 'displayName', 'email', 'uid'),
       content: draftMessage,
-      createdAt: moment().format('MMMM D, h:mma')
+      createdAt: moment().format('M/YY, h:mma')
     });
   }
 

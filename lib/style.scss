@@ -10,14 +10,18 @@ li {
   padding: 8px;
 }
 
-.header {
+header {
   position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
 }
-
 
 .body {
   display: flex;
   justify-content: space-between;
+  height: 100vh;
+  margin-top: 150px;
 }
 
 .date {
@@ -89,7 +93,6 @@ li {
   background-color: #ecf0f1;
 }
 
-
 #filter {
   height: 50px;
   width: 90%;
@@ -159,66 +162,65 @@ li {
 #users {
   display: none;
 }
+
 ::-webkit-input-placeholder {
    color: #2c3e50;
 }
 
 @media screen and (min-width: 600px) {
 
-h5 {
-  padding: 10px;
-}
+  h5 {
+    padding: 10px;
+  }
 
-.MessageInput, header {
-  display: flex;
-  justify-content: space-between;
-  height: 55px;
-  background-color: #34495e;
-  align-items: center;
-}
+  .MessageInput, header {
+    display: flex;
+    justify-content: space-between;
+    height: 55px;
+    background-color: #34495e;
+    align-items: center;
+  }
 
-#title {
-  display: block;
-  margin-left: 10px;
-}
+  #title {
+    display: block;
+    margin-left: 10px;
+  }
 
-#filter {
-  width: 45%;
-  height: 35px;
-  margin-right: 60px;
+  #filter {
+    width: 45%;
+    height: 35px;
+    margin-right: 60px;
+  }
 
-}
+  #users {
+    display: block;
+    background-color: #ecf0f1;
+    width: 33%;
+    height: 200vh;
+  }
 
-#users {
-  display: block;
-  background-color: #ecf0f1;
-  width: 33%;
-}
+  #userName {
+    display: flex;
+    background-color: #95a5a6;
+    height: 40px;
+    align-items: center;
+    font-weight: bold;
+  }
 
-#userName {
-  display: flex;
-  background-color: #95a5a6;
-  height: 40px;
-  align-items: center;
-  font-weight: bold;
-}
+  #sort-up-btn, #sort-down-btn, #submit, #clear {
+    width: 100px;
+    height: 35px;
+    font-size: 20px;
+  }
 
+  #message {
+    height: 30px;
+    color: #2c3e50;
+    width: 85%;
+  }
 
-#sort-up-btn, #sort-down-btn, #submit, #clear {
-  width: 100px;
-  height: 35px;
-  font-size: 20px;
-}
-
-#message {
-  height: 30px;
-  color: #2c3e50;
-  width: 85%;
-}
-
-#CharCount {
-  padding: 0px;
-}
-
+  #CharCount {
+    padding: 0px;
+  }
 
 }
