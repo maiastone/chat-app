@@ -23,19 +23,31 @@ class Application extends React.Component {
   componentDidMount() {
     reference.limitToLast(100).on('value', (snapshot) => {
       const messages = snapshot.val() || {};
-      this.setState({
-        messages: map(messages, (val, key) => extend(val, { key }))
-      });
     });
     firebase.auth().onAuthStateChanged(user => this.setState({ user }));
   }
+  this.setState({
+    messages: map(messages, (val, key) => extend(val, { key }))
+  });
+
+
+  writeThingData() {
+    firebase.database().ref('things').set({
+      username: name,
+
+    });
+  }
+
+
 
   addNewMessage(draftMessage) {
     const { user } = this.state;
     reference.push({
       user: pick(user, 'displayName', 'email', 'uid'),
       content: draftMessage,
-      createdAt: moment().format('M/YY, h:mma')
+      // createdAt: moment().format('M/YY, h:mma')
+
+
     });
   }
 
